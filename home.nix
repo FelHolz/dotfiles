@@ -21,7 +21,19 @@
         init.defaultBranch = "main";
       };
     };
-    vscode = { enable = true; };
+    vscode = {
+      enable = true;
+      enableExtensionUpdateCheck = false;
+      enableUpdateCheck = false;
+      mutableExtensionsDir = false;
+      extensions = import ./extensions.nix { inherit pkgs; };
+      userSettings = import ./user-settings.nix { inherit pkgs; };
+    };
+    direnv = {
+      enable = true;
+      enableBashIntegration = true;
+      nix-direnv.enable = true;
+    };
   };
 
   home.packages = with pkgs; [ keepassxc google-chrome git ];

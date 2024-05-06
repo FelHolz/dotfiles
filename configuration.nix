@@ -63,7 +63,7 @@
   users.users.fholz = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-    packages = with pkgs; [ keepassxc vscode google-chrome gitFull ];
+
   };
 
   # List packages installed in system profile. To search, run:

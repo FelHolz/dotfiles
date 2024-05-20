@@ -86,6 +86,7 @@
   nix = {
     package = pkgs.nixFlakes;
     extraOptions = "experimental-features = nix-command flakes";
+    settings.max-jobs = 8;
   };
 
   # Open ports in the firewall.

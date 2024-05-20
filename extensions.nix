@@ -1,5 +1,6 @@
 { pkgs, ... }:
-with pkgs.vscode-extensions; [
+with pkgs.vscode-extensions;
+[
   bbenoist.nix
   brettm12345.nixfmt-vscode
   haskell.haskell

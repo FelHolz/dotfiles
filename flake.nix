@@ -9,14 +9,21 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      ...
+    }:
     let
       pkgs = import nixpkgs {
         config.allowUnfree = true;
         system = "x86_64-linux";
       };
-    in {
-      formatter.x86_64-linux = pkgs.nixfmt;
+    in
+    {
+      formatter.x86_64-linux = pkgs.nixfmt-rfc-style;
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         inherit pkgs;
@@ -27,7 +34,9 @@
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = false;
-              users = { fholz = import ./home.nix; };
+              users = {
+                fholz = import ./home.nix;
+              };
             };
           }
         ];

@@ -1,4 +1,5 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+{
   programs = {
     git = {
       enable = true;
@@ -36,7 +37,11 @@
     };
   };
 
-  home.packages = with pkgs; [ keepassxc google-chrome git ];
+  home.packages = with pkgs; [
+    keepassxc
+    google-chrome
+    git
+  ];
 
   home.stateVersion = "23.11";
 }
